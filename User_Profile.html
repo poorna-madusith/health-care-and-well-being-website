@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="user_profile.css">
+        <meta charset="UTF-8" >
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+        <title>User Profile</title>
+        <link rel="stylesheet" href="navigationbar.css">
+</head>
+
+<body>
+   
+    <div class="topnavbar">
+            <img src="images/logo.png" alt="Logo" class="logo">
+            <a href="home.html">HOME</a>
+            <a href="about_us.html">ABOUT US</a>
+            <a href="gallery.html">GALLERY</a>
+            <a href="shop.html">SHOP</a>
+            <a href="sitemap.html">SITE MAP</a>
+            <a href="#comments">COMMENTS</a>
+            <a href="User_Profile.html">
+                <img src="images/profile-user.png" alt="Login" class="login">
+            </a>
+    </div>
+
+    <div class="hero">
+        <div class="form-container">
+            <h1>Create Your User Profile</h1>
+
+            <div class="progress-bar-container">
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <div class="step-indicator">Step 1 of 4</div>
+            </div>
+
+            <!-- Step 1 -->
+            <div class="prompt" id="step1">
+                <label for="firstNameInput">First Name</label>
+                <input type="text" id="firstNameInput" placeholder="Enter your first name" data-label="First Name" data-step="1">
+
+                <label for="surnameInput">Surname</label>
+                <input type="text" id="surnameInput" placeholder="Enter your surname" data-label="Surname" data-step="1">
+
+                <label for="ageInput">Age</label>
+                <input type="text" id="ageInput" placeholder="Enter your age" data-label="Age" data-step="1">
+
+                <label for="emailInput">Email Address</label>
+                <input type="email" id="emailInput" placeholder="Enter your email address" data-label="Email Address" data-step="1">
+
+                <div class="button-container">
+                    <button class="next-button" onclick="nextStep()">Next</button>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="prompt" id="step2" style="display: none;">
+                <label for="activityInput">Physical Activities Frequency</label>
+                <input type="text" id="activityInput" placeholder="E.g., Once/twice a day/week" data-label="Physical Activities Frequency" data-step="2">
+
+                <label>Interests</label>
+                <div class="checkbox-container">
+                    <label><input type="checkbox" id="CyclingCheckbox" value="Cycling" data-step="2"> Cycling</label>
+                    <label><input type="checkbox" id="weightliftingCheckbox" value="Weight Lifting" data-step="2"> Weight Lifting</label>
+                    <label><input type="checkbox" id="OutdoorPLAYING" value="Outdoor Playing" data-step="2"> Outdoor Playing</label>
+                    <label><input type="checkbox" id="TeamsportsCheckbox" value="Team Sports" data-step="2"> Team Sports</label>
+                    <label><input type="checkbox" id="WalkingCheckbox" value="Walking" data-step="2"> Walking</label>
+                </div>
+
+                <label for="injuriesInput">Injuries</label>
+                <input type="text" id="injuriesInput" placeholder="Yes/No" data-label="Injuries" data-step="2">
+
+                <div class="button-container">
+                    <button class="back-button" onclick="previousStep()">Back</button>
+                    <button class="next-button" onclick="nextStep()">Next</button>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="prompt" id="step3" style="display: none;">
+                <label for="dietPlanInput">Diet Plan</label>
+                <select id="dietPlanInput" data-label="Diet Plan" data-step="3">
+                    <option value="not_select">Not Selected</option>
+                    <option value="Vegetarian">Vegetarian</option>
+                    <option value="Vegan">Vegan</option>
+                    <option value="None">None</option>
+                </select>
+
+                <label for="allergiesInput">Allergies/Intolerances</label>
+                <input type="text" id="allergiesInput" placeholder="Enter any allergies or intolerances" data-label="Allergies/Intolerances" data-step="3">
+
+                <label for="favoriteFoodsInput">Favorite Healthy Foods</label>
+                <input type="text" id="favoriteFoodsInput" placeholder="Enter your favorite healthy foods" data-label="Favorite Healthy Foods" data-step="3">
+
+                <div class="button-container">
+                    <button class="back-button" onclick="previousStep()">Back</button>
+                    <button class="next-button" onclick="nextStep()">Next</button>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="prompt" id="step4" style="display: none;">
+                <label for="stressLevelInput">Stress Level</label>
+                <input type="text" id="stressLevelInput" placeholder="On a scale of 1 to 10" data-label="Stress Level" data-step="4">
+
+                <label>Do You Like Listening to Music?</label>
+                <div class="radio-container">
+                    <label><input type="radio" id="yes" name="music" value="Yes" data-step="4"> Yes</label>
+                    <label><input type="radio" id="no" name="music" value="No" data-step="4"> No</label>
+                </div>
+
+                <label for="goalsInput">Health and Well-being Goals</label>
+                <input type="text" id="goalsInput" placeholder="Enter your goals" data-label="Health and Well-being Goals" data-step="4">
+
+                <div class="button-container">
+                    <button class="back-button" onclick="previousStep()">Back</button>
+                    <button class="submit-button" onclick="submitForm()">Submit</button>
+                </div>
+            </div>
+
+            <!-- Thank You and User Details -->
+            <div class="prompt" id="thankYou" style="display: none;">
+                <p class="thank-you-message">Thank you for providing your information!</p>
+            </div>
+
+            <div class="user-details" style="display: none;">
+                <!-- User details will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="bottomnavbar">
+        <div class="logowithmission">
+            <img src="images/logo.png" alt="logo" class="logo">
+            <span class="logo-text">Good Health....Good Life....</span>
+        </div>
+        <div class="navgroup">
+            <a href="home.html">HOME</a>
+            <a href="about_us.html">ABOUT US</a>
+            <a href="gallery.html">GALLERY</a>
+        </div>
+        <div class="navgroup">
+            <a href="shop.html">SHOP</a>
+            <a href="sitemap.html">SITE MAP</a>
+            <a href="#comments">COMMENTS</a>
+        </div>
+        <a href="feedback.html" class="feedbackbutton">Give Us A Feedback</a>
+        <div class="socialmedia">
+            <a href=""><img src="images/Facebook_f_logo_(2019).svg" alt="facebook" ></a>
+            <a href=""><img src="images/Instagram_icon.png" alt="instagram" ></a>
+            <a href=""><img src="images/Gmail_icon_(2020).svg" alt="email" ></a>
+        </div>
+    </div>
+
+    <script src="user_profile.js"></script>
+    <script src="navigationbar.js"></script>
+</body>
+
+</html>

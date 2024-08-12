@@ -1,0 +1,26 @@
+
+
+.tipstopic1,.tipstopic2,.tipstopic3{
+    background-color:rgb(255, 255, 255,0.9);
+    padding: 20p;
+    margin:20px;
+    border-radius:10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    color:black;
+}
+
+.tipstopic1 h2,.tipstopic2 h2,.tipstopic3 h2{
+    font-size:28px;
+    color:rgb(11, 143, 145);
+    margin-bottom:10px;
+    margin-left: 10px;
+
+}
+
+.tipstopic1 p,.tipstopic2 p,.tipstopic3 p{
+    line-height:1.6;
+    margin-bottom: 15px;
+    margin-left:10px;
+    margin-right:10px;
+    font-family: "Roboto Condensed", sans-serif;
+}

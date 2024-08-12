@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(images/start-day-with-good-habit.jpg);
+    background-size:cover;
+    background-position:top;
+    background-attachment:fixed ;
+    margin-top: 200px;
+}
+
+.topnavbar{
+    display:flex;
+    align-items: center;
+    background-color: rgb(7, 165, 168);
+    overflow:hidden;
+    justify-content: space-between;
+    font-family: "Roboto Condensed",sans-serif;
+    font-size:25px;
+    padding:1px 0;
+    width:100%; 
+    position: fixed;
+    top:0;
+    z-index: 1000;
+    
+    
+    
+}
+
+.logo{
+    height:90px;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+.topnavbar a{
+    flex:1;
+    color:white;
+    text-align: center;
+    padding:50px;
+    text-decoration:none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.topnavbar a:hover{
+    color:black;
+    transform: scale(1.1)
+}
+
+.login{
+    height:50px;
+    margin-right:20px;
+    margin-left:20px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.login:hover{
+    box-shadow:0 0 10px white;
+}
+
+.bottomnavbar{
+    display:flex;
+    align-items: center;
+    background-color: rgba(0, 128, 128, 0.8);
+    padding:20px;
+    justify-content:space-between;
+    font-family:  "Roboto Condensed",sans-serif;
+    font-size: 18px;
+    position: bottom;
+    bottom:0;
+    left:0;
+    right:0;
+    width:100%;
+    box-sizing: border-box;
+    z-index:1000;
+
+}
+
+.logowithmission{
+    display:flex;
+    align-items: center;
+
+}
+.logotext{
+    font-size:12px;
+    font-weight:bolder;
+    color:black;
+}
+
+.navgroup{
+    display: flex;
+    flex-direction: column;
+}
+
+.navgroup a{
+    color:white;
+    text-decoration: solid;
+    padding: 5px 0;
+
+}   
+
+.navgroup a:hover{
+    color:black;    
+}
+
+.feedbackbutton{
+    display: inline-block;
+    background-color: black;
+    color:white;
+    padding:10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left:20px;
+    transition: background-color 0.3s ease;
+    font-family: "Roboto Condensed",sans-serif;
+}
+
+.feedbackbutton:hover{
+    background-color: turquoise;
+}
+
+.socialmedia{
+    margin-left:10px;
+}
+
+.socialmedia img{
+    height: 30px;
+    margin-left: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.socialmedia img:hover{
+    transform: scale(1.1);
+}
+
+.topnavbar {
+    display: flex;
+    align-items: center;
+    background-color: rgb(7, 165, 168);
+    overflow: hidden;
+    justify-content: space-between;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 25px;
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    transition: padding 0.3s ease;
+}
+
+.topnavbar.scrolled {
+    padding: 2px 0; /* Further reduced padding when scrolled */
+}
+
+.logo {
+    height: 90px;
+    margin-left: 20px;
+    margin-right: 20px;
+    transition: height 0.3s ease;
+}
+
+.topnavbar.scrolled .logo {
+    height: 40px; /* Further reduced height when scrolled */
+}
+
+.topnavbar a {
+    flex: 1;
+    color: white;
+    text-align: center;
+    padding: 50px;
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.topnavbar.scrolled a {
+    padding: 20px; /* Adjust padding of the links if needed */
+}

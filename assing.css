@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+
+.description {
+  background-color: rgba(245, 245, 245, 0.7); /* Light grey with 90% opacity */
+  padding: 30px; /* More space around the content for a spacious look */
+  margin: 20px; /* Space outside the container */
+  border-radius: 8px; /* Rounded corners */
+  text-align: center; /* Center the text */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.description h1 {
+  font-size: 2em; /* Larger font size for the heading */
+  color: #333; /* Dark grey color for the heading */
+  font-family: "Righteous", sans-serif;
+}
+
+.description p {
+  font-size: 1.2em; /* Slightly larger font size for the paragraph */
+  color: #000000; /* Medium grey color for the text */
+  line-height: 1.6; /* Spacing between lines of text */
+  max-width: 800px; /* Maximum width for better readability */
+  margin: 0 auto; /* Center the paragraph */
+}

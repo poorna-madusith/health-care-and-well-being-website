@@ -1,0 +1,31 @@
+.missioncontent{
+    padding: 20px;
+    text-align: center;
+    color:black;
+    font-weight: bolder;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    max-width: 800px;
+    box-sizing: border-box;
+    margin-top: 50px;
+    margin-bottom: 60px;
+    margin-left: 400px;
+    margin-right: 400px;
+    
+
+}
+
+.missioncontent h2{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-size: 50px;
+    font-weight: bolder;
+    font-family: "Righteous", sans-serif;
+    color: black;
+}
+
+.missioncontent p{
+    font-size: 18px;
+    line-height: 1.6;
+}

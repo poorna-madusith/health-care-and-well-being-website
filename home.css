@@ -1,0 +1,94 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+/* Ensure the video section takes up the full height of the viewport */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Keep the video container full height */
+    margin-top: 90px; /* Push the video down by the full height of the navbar */
+    overflow: hidden;
+}
+
+
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the video covers the whole area */
+    z-index: 1;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    z-index: 2;
+}
+
+.video-overlay h1 {
+    font-size: 3rem; /* Adjust size as needed */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adds a shadow for better readability */
+    font-family: "Righteous", sans-serif;
+
+    
+}
+
+/* Additional adjustments to ensure the layout looks good */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+h1.h1 {
+    margin-top: 20px; /* Adjust margin to move content below video */
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .video-overlay h1 {
+        font-size: 2rem; /* Adjust text size for smaller screens */
+    }
+}
+
+.see-more {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.5rem;
+    font-family:'Times New Roman', Times, serif;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 3;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.see-more:hover {
+    transform: translateX(-50%) scale(1.1);
+}
+
+
+P{
+    
+    font-size: 6rem; /* Adjust size as needed */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adds a shadow for better readability */
+    font-family: "Righteous", sans-serif;
+}
+
+
+

@@ -1,0 +1,119 @@
+.feedback-section{
+    max-width:600px;
+    margin:20px auto;
+    padding:20px;
+    background-color: white ;
+    border:1px solid white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.feedbacksection h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-group{
+    margin-bottom:15px;
+}
+
+.input-group label{
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="radio"],
+.input-group textarea,
+.input-group select{
+    width:100%;
+    padding:8px;
+    font-size: 16px;
+    border:1px solid #ccc;
+    border-radius:4px;
+    box-sizing: border-box;
+}
+
+
+.input-group input[type="radio"]{
+    width: auto;
+    margin-right: 10px;
+}
+.input-group textarea{
+    height: 100px;
+
+}
+
+button[type="submit"],
+button[type="reset"]{
+    background-color: turquoise;
+    color: black;
+    padding: 10px 20px;
+    border:none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+
+button:hover{
+    background-color: wheat;
+}
+
+.rating-group{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rating-group label{
+    display: block;
+    text-align: center;
+}
+
+.rating-group input{
+    display: block;
+    margin:0 auto;
+}
+
+.button-group{
+    display: flex;
+    justify-content: space-between;
+}
+
+#feedback-preview{
+    display: none;
+    margin-top: 20px;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
+}
+
+#feedback-preview h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.preview-group{
+    margin-bottom: 15px;
+}
+
+.preview-group label{
+    display: block;
+    font-weight: bold;
+}
+
+.preview-group span{
+    display: block;
+    margin-top: 5px;
+}
+
+#edit-feedback{
+    margin-top: 10px;
+    text-align: center;
+}
+
