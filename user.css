@@ -1,0 +1,37 @@
+.profile-container {
+    /* Centering the container horizontally and vertically */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Ensure it takes up at least the full viewport height */
+    background-color: rgba(0, 0, 0, 0.1); /* Light background with transparency */
+}
+
+.profile-container > div {
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Space inside the box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth effect */
+    width: 80%; /* Adjust as needed */
+    max-width: 600px; /* Limit the maximum width */
+    text-align: center; /* Center-align text */
+}
+
+h1 {
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+p {
+    margin: 10px 0; /* Space above and below paragraphs */
+}
+
+a {
+    text-decoration: none; /* Remove underline from links */
+    color: #007BFF; /* Bootstrap primary color or choose your own */
+    font-weight: bold; /* Make the link text bold */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover for better UX */
+}

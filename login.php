@@ -16,7 +16,7 @@
         <a href="shop.html">SHOP</a>
         <a href="sitemap.html">SITE MAP</a>
         <a href="#comments">COMMENTS</a>
-        <a href="User_Profile.html">
+        <a href="login.php">
             <img src="images/profile-user.png" alt="Login" class="login">
         </a>
     </div>
@@ -59,7 +59,6 @@
     <script src="navigationbar.js"></script>
 </body>
 </html>
-
 <?php
 session_start();
 
@@ -83,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $form_password = $_POST['password'];
 
         // SQL query to fetch the user data
-        $sql = "SELECT username, password FROM user_details WHERE username = ?";
+        $sql = "SELECT full_name, age, email, username, password FROM user_details WHERE username = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $form_username);
         $stmt->execute();
@@ -95,7 +94,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Verify the password
             if (password_verify($form_password, $hashed_password)) {
-                echo "<script>alert('You have successfully logged in!'); window.location.href = 'home.html';</script>";
+                // Store user details in session
+                $_SESSION['full_name'] = $row['full_name'];
+                $_SESSION['age'] = $row['age'];
+                $_SESSION['email'] = $row['email'];
+                $_SESSION['username'] = $row['username'];
+
+                echo "<script> window.location.href = 'user.php';</script>";
             } else {
                 echo "<script>alert('Incorrect password. Please try again.'); window.history.back();</script>";
             }

@@ -1,3 +1,14 @@
+<?php
+session_start(); // Ensure session is started
+
+// Check if the user is logged in by checking if session variables are set
+if (!isset($_SESSION['username'])) {
+    echo "<script>alert('You must be logged in to view this page.'); window.location.href = 'login.php';</script>";
+    exit();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,8 +17,9 @@
         <meta charset="UTF-8" >
         <meta http-equiv="X-UA-Compatible" content="IE=edge" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-        <title>User Profile</title>
+        <title>Profile</title>
         <link rel="stylesheet" href="navigationbar.css">
+        <link rel="stylesheet" href="user.css">
 </head>
 
 <body>
@@ -20,30 +32,19 @@
             <a href="shop.html">SHOP</a>
             <a href="sitemap.html">SITE MAP</a>
             <a href="#comments">COMMENTS</a>
-            <a href="User_Profile.html">
+            <a href="login.php">
                 <img src="images/profile-user.png" alt="Login" class="login">
             </a>
     </div>
 
-    <div class="user-profile-form">
-        <form  action="User_Profile.php" method="post">
-            <label for="fullName">Full Name:</label>
-            <input type="text" id="fullName" name="fullName" required><br>
-
-            <label for="age">Age:</label>
-            <input type="number" id="age" name="age" min="1" max="100" required><br>
-
-            <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email" required><br>
-
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required><br>
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required><br>
-
-            <button type="submit">Submit</button>
-        </form>
+    <div class="profile-container">
+        <div>
+            <h1>Welcome, <?php echo htmlspecialchars($_SESSION['full_name']); ?>!</h1>
+            <p><strong>Username:</strong> <?php echo htmlspecialchars($_SESSION['username']); ?></p>
+            <p><strong>Age:</strong> <?php echo htmlspecialchars($_SESSION['age']); ?></p>
+            <p><strong>Email:</strong> <?php echo htmlspecialchars($_SESSION['email']); ?></p>
+            <a href="login.php">Logout</a>
+        </div>
     </div>
 
 
@@ -70,9 +71,10 @@
         </div>
     </div>
 
-    <script src="user_profile.js"></script>
+   
     <script src="navigationbar.js"></script>
 </body>
 
 </html>
+
 
