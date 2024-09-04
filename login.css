@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.form-container {
+    flex-grow: 1; /* Takes up the available space between navbars */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Optional padding to avoid touching edges */
+    margin-top: 200px;
+}
+
+.loginform {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent box */
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.loginform input[type="text"],
+.loginform input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.loginform input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.loginform input[type="submit"]:hover {
+    background-color: #45a049;
+}
