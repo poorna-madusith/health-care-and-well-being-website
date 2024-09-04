@@ -1,176 +1,38 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
-
-.hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    
-}
-
-.form-container {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 30px;
+.user-profile-form {
     width: 100%;
     max-width: 600px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
+    margin: 20px auto;
+    padding: 60px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centering the button */
 }
 
-h1 {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #333;
-}
-
-.prompt {
-    margin-bottom: 30px;
-}
-
-label {
+.user-profile-form label {
     display: block;
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #333;
+    margin-bottom: 5px;
+    text-align: left; /* Keep labels aligned left */
 }
 
-input[type="text"],
-input[type="email"],
-select {
+.user-profile-form input {
     width: 100%;
     padding: 10px;
-    font-size: 16px;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-    background-color: #f9f9f9;
-    transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-select:focus {
-    border-color: #0066cc;
-}
-
-.checkbox-container label,
-.radio-container label {
-    display: block;
-    font-size: 16px;
-    margin-bottom: 10px;
-    cursor: pointer;
-}
-
-.button-container {
-    text-align: center;
-}
-
-.next-button,
-.back-button,
-.submit-button {
-    padding: 12px 20px;
-    font-size: 16px;
+.user-profile-form button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    color: #fff;
-    margin: 0 10px;
-    transition: background-color 0.3s ease;
+    display: inline-block;
 }
 
-.next-button {
-    background-color: #007bff;
-}
-
-.back-button {
-    background-color: #6c757d;
-}
-
-.submit-button {
-    background-color: #28a745;
-}
-
-.next-button:hover {
-    background-color: #0056b3;
-}
-
-.back-button:hover {
-    background-color: #5a6268;
-}
-
-.submit-button:hover {
+.user-profile-form button:hover {
     background-color: #218838;
-}
-
-.progress-bar-container {
-    margin-bottom: 30px;
-}
-
-.progress-bar {
-    width: 100%;
-    height: 10px;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.progress {
-    height: 100%;
-    background-color: #28a745;
-    width: 25%;
-    transition: width 0.4s ease;
-}
-
-.step-indicator {
-    text-align: right;
-    margin-top: 5px;
-    font-size: 14px;
-    color: #666;
-}
-
-.thank-you-message {
-    font-size: 24px;
-    color: #28a745;
-    text-align: center;
-    margin: 20px 0;
-}
-
-.user-details {
-    font-size: 18px;
-    color: #333;
-    margin: 30px 0;
-}
-
-.user-details p {
-    margin: 10px 0;
-}
-
-.close-button {
-    display: block;
-    width: 100%;
-    padding: 12px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-    text-align: center;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
-}
-
-.close-button:hover {
-    background-color: #0056b3;
 }

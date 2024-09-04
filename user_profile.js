@@ -1,123 +1,35 @@
-// Handle the progress bar and step transitions
-let currentStep = 1;
-const totalSteps = 4;
-const userDetailsDiv = document.querySelector('.user-details');
+document.getElementById('userProfileForm').addEventListener('submit', function(event) {
+    // Prevent the form from submitting if validation fails
+    event.preventDefault();
 
-function nextStep() {
-    if (validateStep1Inputs()) {
-        currentStep++;
-        showStep(currentStep);
-        updateProgressBar();
-    }
-}
+    // Retrieve form values
+    const fullName = document.getElementById('fullName').value.trim();
+    const age = parseInt(document.getElementById('age').value, 10);
+    const email = document.getElementById('email').value.trim();
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
 
-function previousStep() {
-    currentStep--;
-    showStep(currentStep);
-    updateProgressBar();
-}
-
-function showStep(step) {
-    for (let i = 1; i <= totalSteps; i++) {
-        const stepElement = document.getElementById(`step${i}`);
-        stepElement.style.display = i === step ? 'block' : 'none';
+    // Validate age (should be a number between 1 and 100)
+    if (isNaN(age) || age < 1 || age > 100) {
+        alert('Please enter a valid age between 1 and 100.');
+        return;
     }
 
-    if (step === totalSteps) {
-        document.querySelector('.submit-button').style.display = 'inline-block';
-    }
-}
-
-function updateProgressBar() {
-    const progressElement = document.querySelector('.progress');
-    progressElement.style.width = `${(currentStep / totalSteps) * 100}%`;
-    document.querySelector('.step-indicator').textContent = `Step ${currentStep} of ${totalSteps}`;
-}
-
-function validateStep1Inputs() {
-    const step1Inputs = document.querySelectorAll('[data-step="1"]');
-    let valid = true;
-
-    // Check if required fields are empty
-    step1Inputs.forEach(input => {
-        if (input.value.trim() === '') {
-            valid = false;
-            input.style.borderColor = 'red';
-            showErrorMessage(input, `${input.getAttribute('data-label')} is required.`);
-        } else {
-            input.style.borderColor = '';
-            removeErrorMessage(input);
-        }
-    });
-
-    const ageInput = document.getElementById('ageInput');
-    const emailInput = document.getElementById('emailInput');
-
-    // Validate age: should be a number and less than or equal to 100
-    if (!/^\d+$/.test(ageInput.value) || parseInt(ageInput.value) > 100) {
-        valid = false;
-        ageInput.style.borderColor = 'red';
-        showErrorMessage(ageInput, 'Please enter a valid age (a number less than or equal to 100).');
-    } else {
-        ageInput.style.borderColor = '';
-        removeErrorMessage(ageInput);
+    // Validate email format using a regular expression
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
     }
 
-    // Validate email: must include "@gmail.com"
-    const emailPattern = /^[^\s@]+@gmail\.com$/;
-    if (!emailPattern.test(emailInput.value)) {
-        valid = false;
-        emailInput.style.borderColor = 'red';
-        showErrorMessage(emailInput, 'Please enter a valid Gmail address (e.g., user@gmail.com).');
-    } else {
-        emailInput.style.borderColor = '';
-        removeErrorMessage(emailInput);
+    // Validate password (should be at least 8 characters long)
+    if (password.length < 8) {
+        alert('Password must be at least 8 characters long.');
+        return;
     }
 
-    return valid;
-}
-
-function showErrorMessage(input, message) {
-    removeErrorMessage(input); // Remove any existing error message
-    const errorMessage = document.createElement('div');
-    errorMessage.className = 'error-message';
-    errorMessage.textContent = message;
-    input.parentNode.insertBefore(errorMessage, input.nextSibling);
-}
-
-function removeErrorMessage(input) {
-    const nextElement = input.nextSibling;
-    if (nextElement && nextElement.className === 'error-message') {
-        nextElement.remove();
-    }
-}
-
-function submitForm() {
-    if (validateStep1Inputs()) {
-        displayUserDetails();
-        document.getElementById('step4').style.display = 'none';
-        document.getElementById('thankYou').style.display = 'block';
-        userDetailsDiv.style.display = 'block';
-    }
-}
-
-function displayUserDetails() {
-    userDetailsDiv.innerHTML = ''; // Clear previous details
-
-    for (let i = 1; i <= totalSteps; i++) {
-        const inputs = document.querySelectorAll(`[data-step="${i}"]`);
-        inputs.forEach(input => {
-            const label = input.getAttribute('data-label');
-            const value = input.value || 'Not provided';
-            userDetailsDiv.innerHTML += `<p><strong>${label}:</strong> ${value}</p>`;
-        });
-    }
-
-    // Add a close button
-    userDetailsDiv.innerHTML += `<button class="close-button" onclick="closeDetails()">Close</button>`;
-}
-
-function closeDetails() {
-    alert('Profile created successfully!');
-    location.reload(); // Refresh the page
-}
+    // If all validations pass, show an alert and refresh the page
+    alert('Successfully registered');
+    // Uncomment the next line if you want to submit the form after validation
+    // this.submit();
+});
