@@ -22,18 +22,16 @@
     </div>
 
     <div class="form-container">
-        <form class="loginform" action="<?php htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">
-            <label for="username">Username:</label><br>
-            <input type="text" name="username" ><br>
-            <label for="password">Password:</label><br>
-            <input type="password" name="password" ><br>
+        <form class="loginform" action="login.php" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
             <input type="submit" value="Login"><br><br>
             <label for="createacc">if you dont have an account?</label><br><br>
-            <a href="User_profile.html" class="create-account-btn">Create Account</a>
+            <a href="User_profile.php" class="create-account-btn">Create Account</a>
         </form>
     </div>
-
-    
 
     <div class="bottomnavbar">
         <div class="logowithmission">
@@ -63,16 +61,51 @@
 </html>
 
 <?php
+session_start();
 
-    if($_SERVER["REQUEST_METHOD"]=="POST"){
-        if (isset($_POST['create_account'])) {
-            // Redirect to create_account.html
-            header("User_Profile.html");
-            exit();
+// Database connection
+$servername = "localhost"; 
+$username = "root"; 
+$password = ""; 
+$dbname = "health_care"; 
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Check if form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Ensure that both fields are set
+    if (isset($_POST['username']) && isset($_POST['password'])) {
+        $form_username = $_POST['username'];
+        $form_password = $_POST['password'];
+
+        // SQL query to fetch the user data
+        $sql = "SELECT username, password FROM user_details WHERE username = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $form_username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $hashed_password = $row['password'];
+
+            // Verify the password
+            if (password_verify($form_password, $hashed_password)) {
+                echo "<script>alert('You have successfully logged in!'); window.location.href = 'home.html';</script>";
+            } else {
+                echo "<script>alert('Incorrect password. Please try again.'); window.history.back();</script>";
+            }
+        } else {
+            echo "<script>alert('Username not found. Please check your username or create a new account.'); window.history.back();</script>";
         }
-        if (isset($_POST['login'])) {
-            // Handle login logic
-        }
+    } else {
+        echo "<script>alert('Both username and password are required.'); window.history.back();</script>";
     }
+}
 
+$conn->close();
 ?>
